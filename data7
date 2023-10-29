@@ -1,0 +1,35 @@
+// En uzun ismi bulur ve harf sayısını döndürür
+int findLongestName(Student students[], int n, char *longestName) {
+    if (n == 0) {
+        return 0; // Liste boşsa 0 döndür
+    }
+
+    int maxLen = strlen(students[0].name); // İlk öğrencinin ismi ile başla
+    strcpy(longestName, students[0].name);
+
+    for (int i = 1; i < n; i++) {
+        int currentLen = strlen(students[i].name);
+        if (currentLen > maxLen) {
+            maxLen = currentLen;
+            strcpy(longestName, students[i].name);
+        }
+    }
+
+    return maxLen;
+}
+int main() {
+    int n = 3;
+    Student students[n];
+
+    // Öğrenci bilgilerini doldur (Önceki kodlar burada)
+
+    // Diğer kodlar (karıştırma ve sonuçları yazdırma) burada
+
+    char longestName[50];
+    int maxLength = findLongestName(students, n, longestName);
+    
+    printf("En uzun isim: %s\n", longestName);
+    printf("Harf sayısı: %d\n", maxLength);
+
+    return 0;
+}
