@@ -1,0 +1,62 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+// Öğrenci veri yapısı
+struct Student {
+    int studentNumber;
+    char name[50];
+    int age;
+};
+
+typedef struct Student Student;
+
+// Öğrenci düğümünü ekrana yazdırır
+void printStudent(Student student) {
+    printf("\n");
+    printf("Öğrenci Numarası: %d\n", student.studentNumber);
+    printf("Adı: %s\n", student.name);
+    printf("Yaşı: %d\n", student.age);
+    
+}
+
+// Öğrenci dizisini karıştırır
+void shuffleStudents(Student students[], int n) {
+    for (int i = n - 1; i > 0; i--) {
+        int j = rand() % (i + 1);
+        Student temp = students[i];
+        students[i] = students[j];
+        students[j] = temp;
+    }
+}
+
+int main() {
+    int n = 2; // Öğrenci sayısı
+    Student students[n];
+    
+    // Öğrenci bilgilerini doldur
+    students[0].studentNumber = 201;
+    strcpy(students[0].name, "Saliha");
+    students[0].age = 27;
+
+    students[1].studentNumber = 203;
+    strcpy(students[1].name, "Ece");
+    students[1].age = 19;
+
+   
+
+    printf("Öğrenci Bilgileri:\n");
+    for (int i = 0; i < n; i++) {
+        printStudent(students[i]);
+    }
+
+    // Öğrenci dizisini karıştır
+    shuffleStudents(students, n);
+
+    printf("Rastgele Sıralanmış Öğrenci Bilgileri:\n");
+    for (int i = 0; i < n; i++) {
+        printStudent(students[i]);
+    }
+
+    return 0;
+}
