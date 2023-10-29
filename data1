@@ -23,7 +23,7 @@ Node* createNode(int data) {
 Node* prepend(Node* head, int data) {
     Node* yeniNode = createNode(data);
     yeniNode->next = head;
-    return newNode;
+    return yeniNode;
 }
 
 // Listenin sonuna düğüm ekler
@@ -36,7 +36,7 @@ Node* append(Node* head, int data) {
     while (current->next != NULL) {
         current = current->next;
     }
-    current->next = newNode;
+    current->next = yeniNode;
     return head;
 }
 
