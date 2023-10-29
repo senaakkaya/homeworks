@@ -1,0 +1,32 @@
+// Öğrenci adına göre düğümü siler
+void deleteStudentByName(Student students[], int *n, const char *name) {
+    int index = searchStudentByName(students, *n, name); // İsimi bul
+    if (index != -1) {
+        // İsim bulundu, öğrenciyi diziden çıkar
+        for (int i = index; i < *n - 1; i++) {
+            students[i] = students[i + 1];
+        }
+        (*n)--;
+    }
+}
+int main() {
+    int n = 3;
+    Student students[n];
+
+    // Öğrenci bilgilerini doldur (Önceki kodlar burada)
+
+    // Diğer kodlar (karıştırma ve sonuçları yazdırma) burada
+
+    printf("Öğrenci adını girin: ");
+    char deleteName[50];
+    scanf("%s", deleteName);
+
+    deleteStudentByName(students, &n, deleteName);
+    
+    printf("Öğrenci Bilgileri (Silindikten Sonra):\n");
+    for (int i = 0; i < n; i++) {
+        printStudent(students[i]);
+    }
+
+    return 0;
+}
