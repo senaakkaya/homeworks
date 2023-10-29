@@ -8,6 +8,7 @@ void deleteStudentByName(Student students[], int *n, const char *name) {
         }
         (*n)--;
     }
+
 }
 int main() {
     int n = 3;
